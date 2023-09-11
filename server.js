@@ -11,6 +11,9 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
+const documentsRouter = require('./routes/documents'); 
+const profilePicRouter = require('./routes/profilepic'); 
+
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -58,6 +61,8 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
+app.use('/document', documentsRouter);
+app.use('/profilePic', profilePicRouter);
 
 
 //Server Running

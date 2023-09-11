@@ -8,6 +8,7 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
+
             <h2>Add a post</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
@@ -25,7 +26,42 @@
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
           </div>
+
+          <h2>Add/Change your pet's profile pic</h2>
+            <form action="/post/createProfilePic" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Pet's Name</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div> 
+
+          <div class="mt-5">
+            <h2>Add your Pet's Document</h2>
+            <form action="/document/createDocument" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                <label for="documentName" class="form-label">Document Name</label>
+                <input type="text" class="form-control" id="documentName" name="documentName">
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="petDocument" class="form-label">Choose a Document</label>
+                <input type="file" class="form-control" id="petDocument" name="file"> 
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
       </div>
+
+
       <div class="col-6">
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
