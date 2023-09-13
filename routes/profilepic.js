@@ -4,9 +4,12 @@ const { profilePicUpload } = require("../middleware/multer"); // Import profileP
 const profilePicController = require("../controllers/profilePic");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+
+
+//profile pic routes
 router.get("/:id", ensureAuth, profilePicController.getProfilePic);
 
-router.post("/createProfilePic", profilePicUpload.single("file"), profilePicController.createPost);
+router.post("/createProfilePic", profilePicUpload.single("file"), profilePicController.createProfilePic);
+
 
 module.exports = router;

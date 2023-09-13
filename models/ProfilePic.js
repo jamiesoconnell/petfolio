@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const ProfilePicSchema = new mongoose.Schema({
+  
   petName: {
     type: String,
     required: true,
@@ -13,7 +14,7 @@ const ProfilePicSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-     user: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },

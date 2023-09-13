@@ -1,27 +1,28 @@
 const cloudinary = require("../middleware/cloudinary");
-const Post = require("../models/ProfilePic");
+const ProfilePic = require("../models/ProfilePic");
 
 module.exports = {
   getProfilePic: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const profilePic = await ProfilePic.findOne({ user: req.user.id });
+      res.render("profile.ejs", { profilePic: profilePic,});
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   },
-  createPost: async (req, res) => {
+  
+  createProfilePic: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Post.create({
-        title: req.body.title,
+      await ProfilePic.create({
+        petName: req.body.petName,
         image: result.secure_url,
         cloudinaryId: result.public_id,
         user: req.user.id,
       });
-      console.log("Post has been added!");
+      console.log("Profile Pic has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);

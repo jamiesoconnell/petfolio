@@ -12,7 +12,7 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
 const documentsRouter = require('./routes/documents'); 
-const profilePicRouter = require('./routes/profilepic'); 
+const profilePicRouter = require('./routes/profilePic'); 
 
 
 //Use .env file in config folder

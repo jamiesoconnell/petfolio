@@ -9,7 +9,7 @@
           </div>
           <div class="mt-5">
 
-            <h2>Add a post</h2>
+            <!-- <h2>Add a post</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
@@ -25,13 +25,18 @@
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
-          </div>
-
+          </div> -->
+          
+          <div>
+            <h2><%= profilePic.petName %></h2>
+        </div>
+        
+        
           <h2>Add/Change your pet's profile pic</h2>
-            <form action="/post/createProfilePic" enctype="multipart/form-data" method="POST">
+            <form action="/profilePic/createProfilePic" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="title" class="form-label">Pet's Name</label>
-                  <input type="text" class="form-control" id="title" name="title">
+                  <input type="text" class="form-control" id="petName" name="petName">
               </div>
               <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
@@ -63,6 +68,7 @@
 
 
       <div class="col-6">
+        
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
@@ -72,6 +78,7 @@
           </li>
         <% } %>
         </ul>
+
         <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
         </div>  
