@@ -1,11 +1,15 @@
 const cloudinary = require("../middleware/cloudinary");
 const ProfilePic = require("../models/ProfilePic");
+const Post = require("../models/Post");
+const Document = require("../models/Document");
 
 module.exports = {
   getProfilePic: async (req, res) => {
     try {
       const profilePic = await ProfilePic.findOne({ user: req.user.id });
-      res.render("profile.ejs", { profilePic: profilePic,});
+      const posts = await Post.find({ user: req.user.id }).lean();
+      const documents = await Document.find({ user: req.user.id }).lean(); // Add this line to fetch user's documents
+      res.render("profile.ejs", { profilePic: profilePic, posts: posts, documents: documents, user: req.user });
     } catch (err) {
       console.error(err);
     }

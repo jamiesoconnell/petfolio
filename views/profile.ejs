@@ -28,8 +28,17 @@
           </div> -->
           
           <div>
-            <h2><%= profilePic.petName %></h2>
-        </div>
+            <% if (profilePic) { %>
+              <h2><%= profilePic.petName %></h2>
+              <img class="img-fluid" src="<%= profilePic.image %>" alt="profile pic uploaded by user">
+
+              <!-- Other profilePic-related content here -->
+            <% } else { %>
+              <h2>Your Pet's Name and Photo go here</h2>
+              <!-- Render content when there is no profile picture -->
+            <% } %>
+          </div>
+          
         
         
           <h2>Add/Change your pet's profile pic</h2>
@@ -65,23 +74,23 @@
             </form>
           </div>
       </div>
-
-
-      <div class="col-6">
-        
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
+      <ul>
+        <% for(var i=0; i<documents.length; i++) { %>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+            <a href="/documents/<%= documents[i]._id %>">
+              <%= documents[i].documentName %> 
             </a>
           </li>
         <% } %>
-        </ul>
+      </ul>
+      
 
-        <div class="row justify-content-center mt-5">
+      <div class="col-6">
+        
+      
+        <!-- <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
+        </div>   -->
       </div>  
     </div>
   </div>
