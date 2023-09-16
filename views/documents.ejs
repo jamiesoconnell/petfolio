@@ -1,0 +1,21 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <h2><%= document.documentName %></h2>
+      <!-- Display other document-related content here -->
+      <p><strong>File Type</strong>: <%= document.fileType %></p>
+      <p><strong>File Size</strong>: <%= document.fileSize %> bytes</p>
+      <p><strong>Description</strong>: <%= document.description %></p>
+      <!-- You can add more fields as needed -->
+
+      <!-- Display document URL as a download link -->
+      <a href="<%= document.fileUrl %>" download>Download Document</a>
+    </div>
+    <div class="col-6 mt-5">
+      <!-- You can add more content here, such as comments or related actions -->
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

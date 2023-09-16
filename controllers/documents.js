@@ -4,8 +4,8 @@ const Document = require("../models/Document");
 module.exports = {
   getDocument: async (req, res) => {
     try {
-      const post = await Document.findById(req.params.id);
-      res.render("post.ejs", { post: post, user: req.user, comments: comments });
+      const document = await Document.findById(req.params.id);
+      res.render("documents.ejs", { document: document, user: req.user });
     } catch (err) {
       console.log(err);
     }

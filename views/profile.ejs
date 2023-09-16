@@ -3,6 +3,8 @@
   <div class="row mt-5">
       <div class="col-6">
           <div>
+            
+              <p><strong>Dog Fact</strong>: <%= dogFact.facts %></p>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
@@ -57,7 +59,7 @@
 
           <div class="mt-5">
             <h2>Add your Pet's Document</h2>
-            <form action="/document/createDocument" enctype="multipart/form-data" method="POST">
+            <form action="/documents/createDocument" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                 <label for="documentName" class="form-label">Document Name</label>
                 <input type="text" class="form-control" id="documentName" name="documentName">
@@ -75,14 +77,16 @@
           </div>
       </div>
       <ul>
-        <% for(var i=0; i<documents.length; i++) { %>
+        <% for (var i = 0; i < documents.length; i++) { %>
           <li class="col-6 justify-content-between mt-5">
             <a href="/documents/<%= documents[i]._id %>">
               <%= documents[i].documentName %> 
             </a>
+            <span><%= documents[i].description %></span>
           </li>
         <% } %>
       </ul>
+      
       
 
       <div class="col-6">

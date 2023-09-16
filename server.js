@@ -12,7 +12,8 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
 const documentsRouter = require('./routes/documents'); 
-const profilePicRouter = require('./routes/profilePic'); 
+const profilePicRouter = require('./routes/profilePic');
+const dogFactsRoute = require('./routes/dogFacts'); 
 
 
 //Use .env file in config folder
@@ -61,9 +62,9 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 app.use("/comment", commentRoutes);
-app.use('/document', documentsRouter);
+app.use('/documents', documentsRouter);
 app.use('/profilePic', profilePicRouter);
-
+app.use('/dogFacts', dogFactsRoute);
 
 //Server Running
 app.listen(process.env.PORT, () => {
