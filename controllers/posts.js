@@ -1,10 +1,13 @@
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
+const fetch = require('node-fetch');
+
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
+      //session running -so each req has the logged in users info: req.user. then i grb just the post of the logged in user.
       const posts = await Post.find({ user: req.user.id });
       res.render("profile.ejs", { posts: posts, user: req.user });
     } catch (err) {
@@ -16,7 +19,16 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+      const dogBreedResponse = await fetch('https://api.thedogapi.com/v1/breeds', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const dogBreedData = await dogBreedResponse.json();
+
+      console.log(dogBreedData);
+      res.render("feed.ejs", { posts: posts, breeds: dogBreedData });
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +56,7 @@ module.exports = {
         user: req.user.id,
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/feed");
     } catch (err) {
       console.log(err);
     }

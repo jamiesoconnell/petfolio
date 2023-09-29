@@ -1,101 +1,156 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-            
-              <p><strong>Dog Fact</strong>: <%= dogFact.facts %></p>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/profile">Petfolio</a>
+      <div>
+        <p class="pre-wrap masthead-subheading font-weight-light mb-0"><%= user.userName %> </p>
+        <p class="pre-wrap masthead-subheading font-weight-light mb-0"><%= user.email %></p>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile">PROFILE</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/feed">SOCIAL</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <header class="masthead bg-primary text-white text-center shrink">
+    <div class="container d-flex align-items-center flex-column">
+      <div class = "container compressed d-flex justify-content-center">
+        <p><strong>Dog Fact</strong>: <%= dogFact.facts %></p>
+    </div>
+      <!-- Masthead Avatar Image -->
+      <% if (profilePic) { %>
+        <img class="masthead-avatar" src="<%= profilePic.image %>" alt="The profile pic that you upload goes here">
+      <% } else { %>
+        <img class="masthead-avatar round-corner" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00ODNiYXRjaDItZWxlbWVudC1zLTA0MC14LmpwZw.jpg?s=zsK6i08ilLGGs08HScywkw9EM_o3oPcUKwT-Kdb3sFQ" alt="Default profile pic or message">
+      <% } %>
+      
+      <div class="small-contain align-items-center spacing">
+        <h2 class="options-font">Add/Change your pet's profile pic</h2>
+        
+        <div class="row justify-content-around content">
+          <form action="/profilePic/createProfilePic" enctype="multipart/form-data" method="POST">
+            <div class="content">
+              <label for="petName" class="form-label options-font">Pet's Name:</label>
+              <input type="text" class="form-control input-resize" id="petName" name="petName">
+              <label for="imageUpload" class="form-label options-font">Image:</label>
+              <input type="file" class="input-resize custom-file-upload hide-word" id="imageUpload" name="file">
+              <button type="submit" class="btn btn-primary input-resize button-outline" value="Upload">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+      <!-- Masthead Heading-->
+      <% if (profilePic) { %>
+        <h1 class="masthead-heading mb-0"><%= profilePic.petName %></h1>
+      <% } else { %>
+        <h1 class="masthead-heading mb-0">Your pet's name here</h1>
+      <% } %>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Masthead Subheading-->
+      <!-- <p class="pre-wrap masthead-subheading font-weight-light mb-0">User Name: <%= user.userName %> </p>
+      <p class="pre-wrap masthead-subheading font-weight-light mb-0">Email: <%= user.email %></p> -->
+    </div>
+    
+  </header>
+</body>
+ <!-- starting of the Documents Sections -->
+
+    <section class="page-section portfolio" id="portfolio">
+      <div class="container">
+        <!-- Portfolio Section Heading-->
+        <div class="text-center">
+          <h6 class="page-section-heading text-secondary mb-0 d-inline-block">Documents</h6>
+      </div>
+      <div class="small-contain2 align-items-center spacing  align-items-center">
+        <h2 class="options-font spacing">Add your Pet's Document</h2>
+        <form action="/documents/createDocument" enctype="multipart/form-data" method="POST">
+          <div class="row justify-content-around content alignment">
+            <div class="content">
+              <label for="documentName" class="form-label options-font">Document Name:</label>
+              <input type="text" class="form-control input-resize" id="documentName" name="documentName">
+              <label for="description" class="form-label options-font">Description:</label>
+              <textarea class="form-control input-resize" id="description" name="description"></textarea>
+              <label for="petDocument" class="form-label options-font">Choose a Document:</label>
+              <input type="file" class="form-control input-resize custom-file-upload hide-word" id="petDocument" name="file">
+              <button type="submit" class="btn btn-primary input-resize button-outline" value="Upload">Submit</button>
+            </div>
           </div>
-          <div class="mt-5">
+        </form>
+      </div>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+      <!-- Portfolio Grid Items-->
+      <div class="row justify-content-center">
+          <!-- Portfolio Items-->
 
-            <!-- <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div> -->
-          
-          <div>
-            <% if (profilePic) { %>
-              <h2><%= profilePic.petName %></h2>
-              <img class="img-fluid" src="<%= profilePic.image %>" alt="profile pic uploaded by user">
 
-              <!-- Other profilePic-related content here -->
-            <% } else { %>
-              <h2>Your Pet's Name and Photo go here</h2>
-              <!-- Render content when there is no profile picture -->
+          <!-- test -->
+          <div class="row justify-content-center">
+            <!-- Check if there are documents in the array before displaying clipboard icons -->
+            <% if (documents.length > 0) { %>
+              <% for (var i = 0; i < documents.length; i++) { %>
+                <!-- Portfolio Items for Documents -->
+                <div class="col-md-6 col-lg-4 mb-5">
+                  <li>
+                    <a class="strong shrink black-font" href="/documents/<%= documents[i]._id %>">
+                      <%= documents[i].documentName %> 
+                    </a>
+                    <span class="block"><%= documents[i].description %></span>
+                  </li>
+                  <a href="/documents/<%= documents[i]._id %>">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal<%= i + 1 %>">
+                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white">
+                          <i class="fas fa-dog fa-3x"></i>
+                        </div>
+                      </div>
+                      <img class="img-fluid pic-adjust" src="https://static.vecteezy.com/system/resources/previews/010/941/469/original/clipboard-paper-and-pencil-cartoon-icon-illustration-business-object-icon-concept-isolated-premium-flat-cartoon-style-vector.jpg" alt="Document" />
+                    </div>
+                  </a>
+                </div>
+              <% } %>
             <% } %>
           </div>
-          
-        
-        
-          <h2>Add/Change your pet's profile pic</h2>
-            <form action="/profilePic/createProfilePic" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Pet's Name</label>
-                  <input type="text" class="form-control" id="petName" name="petName">
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div> 
-
-          <div class="mt-5">
-            <h2>Add your Pet's Document</h2>
-            <form action="/documents/createDocument" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                <label for="documentName" class="form-label">Document Name</label>
-                <input type="text" class="form-control" id="documentName" name="documentName">
-              </div>
-              <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="petDocument" class="form-label">Choose a Document</label>
-                <input type="file" class="form-control" id="petDocument" name="file"> 
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
       </div>
-      <ul>
-        <% for (var i = 0; i < documents.length; i++) { %>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/documents/<%= documents[i]._id %>">
-              <%= documents[i].documentName %> 
-            </a>
-            <span><%= documents[i].description %></span>
-          </li>
-        <% } %>
-      </ul>
-      
-      
+  </div>
+</section>
+<section class="page-section bg-primary text-white mb-0" id="about">
+  <div class="container">
+    <!-- About Section Heading-->
+    <div class="text-center">
+      <h2 class="page-section-heading d-inline-block text-white">Appointments</h2>
+    </div>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Calendar Section -->
+    <div class="d-flex justify-content-center">
+      <iframe src="https://calendar.google.com/calendar/embed?src=cccda9a9bc04caeb06ded77a5833550ff2aad13a02fd957460e9529503324eb9%40group.calendar.google.com&ctz=America%2FToronto" style="border: 0" width="500" height="400" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+</section>
 
-      <div class="col-6">
-        
-      
-        <!-- <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>   -->
-      </div>  
     </div>
   </div>
 </div>

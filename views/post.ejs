@@ -1,47 +1,98 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6">
-      <h2><%= post.title %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
-      <div class="row justify-content-between">
-        <form
-          class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
-        <%if(post.user == user.id){ %>
-        <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-        </form>
-        <%}%>
-      </div>
-    </div>
-    <div class="col-3 mt-5">
-      <p><%= post.caption %></p>
-    </div>
-    <form action="/comment/createComment/<%= post.id %>" method="POST">
-      <label for="comment">Enter a comment:</label>
-      <textarea name="comment" id="comment"></textarea>
-      <button type="submit">Submit</button>
-    </form>
-    <ul>
-      <% for (let i = 0; i < comments.length; i++) { %>
-        <li><%= comments[i].comment %></li>
-      <%} %>
-    </ul>
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="/profile">Petfolio</a>
+    <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile">PROFILE</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/feed">SOCIAL</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Logout</a></li>
+      </ul>
     </div>
   </div>
-</div>
+</nav>
+
+<section class="page-section bg-primary text-white mb-0 section-padding text-secondary match-title" id="about">
+  <div class="container">
+    <!-- About Section Heading-->
+    <div class="text-center">
+      <h2 class="page-section-heading d-inline-block text-white"><%= post.title %></h2>
+    </div>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Photo that was clicked on Section -->
+    <div class="d-flex justify-content-center portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+      <img class="img-fluid photo-edits" src="<%= post.image %>" alt="<%= post.title %>" />
+    </div>
+
+    <!-- Likes and garbage can for photos -->
+    <div class="row justify-content-center mt-3">
+      <div class="col-1 text-center">
+        <form action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+          <button class="btn btn-primary" type="submit">
+            <i class="fa fa-heart fa-lg"></i>
+          </button>
+        </form>
+      </div>
+      <div class="col-3 text-center"> <!-- Added a column for the likes count -->
+        <h3 class="likes-font">Likes: <%= post.likes %></h3>
+      </div>
+      <% if (post.user == user.id) { %>
+        <div class="col-1 text-center">
+          <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+            <button class="btn btn-primary" type="submit">
+              <i class="fa fa-trash fa-lg"></i>
+            </button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+
+    <!-- Content below photo -->
+    <div class="row mt-4 justify-content-center">
+      <div class="col-6 text-left">
+        <p class="post-text"><%= post.caption %></p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-6 text-left">
+        <h5>Comments:</h5>
+        <ul class="post-text">
+          <!-- user comments -->
+          <% for (let i = 0; i < comments.length; i++) { %>
+            <li><%= comments[i].comment %></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <div class="col-6">
+        <form action="/comment/createComment/<%= post.id %>" method="POST">
+          <div class="form-group">
+            <label for="comment" class="form-label options-font post-text">Enter a comment:</label>
+            <textarea class="form-control input-resize custom-textarea" name="comment" id="comment"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary input-resize button-outline float-right">Submit</button>
+        </form>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+  </div>
+</section>
+
+
 
 <%- include('partials/footer') -%>

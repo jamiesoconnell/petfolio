@@ -14,6 +14,7 @@ const commentRoutes = require("./routes/comment");
 const documentsRouter = require('./routes/documents'); 
 const profilePicRouter = require('./routes/profilePic');
 const dogFactsRoute = require('./routes/dogFacts'); 
+const dogBreedRoute = require('./routes/dogBreed')
 
 
 //Use .env file in config folder
@@ -65,8 +66,10 @@ app.use("/comment", commentRoutes);
 app.use('/documents', documentsRouter);
 app.use('/profilePic', profilePicRouter);
 app.use('/dogFacts', dogFactsRoute);
+app.use('/dogBreed', dogBreedRoute);
 
 //Server Running
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
 });
+

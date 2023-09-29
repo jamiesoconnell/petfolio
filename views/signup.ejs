@@ -1,7 +1,12 @@
 <%- include('partials/header') -%>
-    <main class="container">
-        <div class="row justify-content-center">
-            <section class="col-6 mt-5">
+<body id="page-top">
+  <div>
+    <header class="masthead bg-primary text-white text-center sign-up-gap">
+      <div class="container d-flex align-items-center flex-column font-color">
+          <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00ODNiYXRjaDItZWxlbWVudC1zLTA0MC14LmpwZw.jpg?s=zsK6i08ilLGGs08HScywkw9EM_o3oPcUKwT-Kdb3sFQ" alt="">
+          <!-- Masthead Heading-->
+      <div >
+            <section>
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
                         <div class="alert alert-danger"><%= el.msg %></div>
@@ -32,8 +37,22 @@
                       </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
+                  <h1 class="masthead-heading mb-0"></h1>
+          <!-- Icon Divider-->
+          <div class="divider-custom divider-light">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+              <div class="divider-custom-line"></div>
+          </div>
+          <!-- Masthead Subheading-->
+          <p class="pre-wrap masthead-subheading font-weight-light mb-0">Social Pet Network - Health Tracking - Community</p>
             </section>
         </div>
+  </header>
+    
+  </div>
+</body>
+        
     </main>
 
 <%- include('partials/footer') -%>

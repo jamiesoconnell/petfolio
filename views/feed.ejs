@@ -1,15 +1,122 @@
 <%- include('partials/header') -%>
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
+    <a class="navbar-brand js-scroll-trigger" href="/profile">Petfolio</a>
+    <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profile">PROFILE</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/feed">SOCIAL</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout">Logout</a></li>
+      </ul>
     </div>
-  </div>  
+  </div>
+</nav>
+
+
+<section class="page-section portfolio" id="portfolio">
+  <div class="container">
+    <!-- Portfolio Section Heading -->
+    <div class="text-center">
+      <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Add a post</h2>
+    </div>
+    <!-- Icon Divider -->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <ul class="row list-unstyled">
+          <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <div class="content">
+              <label for="title" class="form-label options-font">Title:</label>
+              <input type="text" class="form-control input-resize" id="title" name="title">
+              <label for="caption" class="form-label options-font">Caption:</label>
+              <textarea class="form-control input-resize" id="caption" name="caption"></textarea>
+              <label for="imgUpload" class="form-label options-font">Image:</label>
+              <input type="file" class="form-control input-resize custom-file-upload hide-word" id="imageUpload" name="file">
+              <button type="submit" class="btn btn-primary input-resize button-outline" value="Upload">Submit</button>
+            </div>
+          </form>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Left Column - Photos Grid -->
+        <div class="col-md-6">
+          <div class="row justify-content-center">
+            <!-- Portfolio Items from Loop -->
+            <% for(var i = 0; i < posts.length; i++) { %>
+            <div class="col-12 mb-5">
+              <!-- Wrap the image with an anchor tag -->
+              <a href="/post/<%= posts[i]._id %>">
+                <div class="portfolio-item mx-auto page-section-heading text-secondary" data-toggle="modal" data-target="#portfolioModal<%= i %>">
+                  <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                    <div class="portfolio-item-caption-content text-center text-white">
+                      <i class="fas fa-dog fa-3x"></i>
+                    </div>
+                  </div>
+                  <h5 class="text-center match-title font-family"><%= posts[i].title %></h5> <!-- Centered title -->
+                  <img class="img-fluid" src="<%= posts[i].image %>" alt="<%= posts[i].title %>"/>
+                </div>
+              </a>
+            </div>
+            <% } %>
+          </div>
+        </div>
+        <!-- Right Column (Dog Breeds) -->
+        <div class="col-md-6">
+          <p class="text-center text-secondary match-title"><strong>Dog Breeds</strong></p>
+          <div class="pop-up-container">
+            <ul>
+              <% for (const breed in breeds) { %>
+                <li>
+                  <button class="btn btn-primary" onclick="openPopup(<%= JSON.stringify(breeds[breed]) %>)">
+                    <%= breeds[breed].name %>
+                  </button>
+                </li>
+              <% } %>
+            </ul>
+            <div class='popup popup-outline' id="popup">
+              <img class='popup-outline' src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00ODNiYXRjaDItZWxlbWVudC1zLTA0MC14LmpwZw.jpg?s=zsK6i08ilLGGs08HScywkw9EM_o3oPcUKwT-Kdb3sFQ" alt="this is a photo of the dog">
+              <h2 id="popupBreedName"></h2>
+              <p id="popupBreedInfo"></p>
+              <button type="button" onclick="closePopup()">Finished</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        
+        <script>
+          let popup = document.getElementById('popup');
+          let breedNameElement = document.getElementById('popupBreedName');
+          let breedInfoElement = document.getElementById('popupBreedInfo');
+
+
+          function openPopup(breedData) {
+  // Set the breed name and additional information in the popup
+  breedNameElement.textContent = breedData.name;
+  breedInfoElement.textContent = `This breed weighs in at ${breedData.weight.imperial} lbs and has a typical height of ${breedData.height.imperial} inches. They were bred for '${breedData.bred_for}' and typically have a life span of ${breedData.life_span}.`;
+  popup.classList.add("open-popup");
+}
+
+        
+          function closePopup() {
+            popup.classList.remove("open-popup");
+          }
+        </script>
+        
+</script>
+
 <%- include('partials/footer') -%>
