@@ -12,7 +12,7 @@ const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
 const documentsRouter = require('./routes/documents'); 
-const profilePicRouter = require('./routes/profilePic');
+const profilePicRouter = require('./routes/profilepic');
 const dogFactsRoute = require('./routes/dogFacts'); 
 const dogBreedRoute = require('./routes/dogBreed')
 
