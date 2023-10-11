@@ -3,10 +3,10 @@ Petfolio is a full-stack web application that helps pet owners organize and mana
 
 **Link to project:** https://petfolio.cyclic.cloud/
 
-![Screen recording of the website](<public/imgs/Screen Recording 2023-10-05 at 3.18.35 PM.mov>)
 
-![Alt text](public/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg)
-![this is lucy](public/imgs/800px-Lucy_the_Dog_at_The_Green,_Town_Square_Las_Vegas.jpg)
+
+https://github.com/jamiesoconnell/petfolio/assets/128747065/31a088b7-d26b-4411-982a-a5430e4f1bc2
+
 
 
 ## How It's Made:
