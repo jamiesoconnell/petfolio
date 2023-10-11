@@ -4,9 +4,10 @@ Petfolio is a full-stack web application that helps pet owners organize and mana
 **Link to project:** https://petfolio.cyclic.cloud/
 
 ![alt tag](<public/imgs/Screen Recording 2023-10-05 at 3.18.35 PM.mov>)
-one photo above and below
-![Alt text](<public/imgs/icons8-corgi-30.png>)
-/Users/jamieoconnell/Desktop/Portfolio-building/Petfolio/public/imgs/icons8-corgi-30.png
+![Alt text](public/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg)
+![this is lucy](public/imgs/800px-Lucy_the_Dog_at_The_Green,_Town_Square_Las_Vegas.jpg)
+
+
 ## How It's Made:
 
 **Tech used:** Tech Stack: HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, Mongoose, EJS, Passport.js, Cloudinary, Google OAuth, and more.
