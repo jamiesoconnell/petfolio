@@ -3,7 +3,7 @@ Petfolio is a full-stack web application that helps pet owners organize and mana
 
 **Link to project:** https://petfolio.cyclic.cloud/
 
-![alt tag](https://res.cloudinary.com/digfjgato/video/upload/v1697032142/Screen_Recording_2023-10-05_at_3.18.35_PM_t5k5qj.mov)
+![alt tag](<public/imgs/Screen Recording 2023-10-05 at 3.18.35 PM.mov>)
 
 ## How It's Made:
 
