@@ -5,7 +5,7 @@ Petfolio is a full-stack web application that helps pet owners organize and mana
 
 ![alt tag](<public/imgs/Screen Recording 2023-10-05 at 3.18.35 PM.mov>)
 one photo above and below
-![Alt text](<public/imgs/icons8-corgi-30.png>)
+![Alt text](<imgs/icons8-corgi-30.png>)
 
 ## How It's Made:
 
