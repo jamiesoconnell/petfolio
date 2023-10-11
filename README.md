@@ -1,33 +1,51 @@
-# My Awesome Project
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
+# Petfolio
+Petfolio is a full-stack web application that helps pet owners organize and manage their pet's information.
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://petfolio.cyclic.cloud/
 
-![alt tag](http://placecorgi.com/1200/650)
+![alt tag](https://res.cloudinary.com/digfjgato/video/upload/v1697032142/Screen_Recording_2023-10-05_at_3.18.35_PM_t5k5qj.mov)
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** Tech Stack: HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, Mongoose, EJS, Passport.js, Cloudinary, Google OAuth, and more.
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+Petfolio was built with a wide range of technologies and tools. Here's a glimpse into how it all came together:
 
-## Optimizations
-*(optional)*
+Frontend
+HTML, CSS, and JavaScript: The frontend of Petfolio was crafted using fundamental web technologies to create an intuitive and user-friendly interface.
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+EJS (Embedded JavaScript): EJS templates were used to dynamically generate HTML content, allowing for reusable components and easy data rendering.
+
+Bootstrap: The Bootstrap framework was employed for responsive design and styling, ensuring a seamless experience across devices.
+
+Backend
+Node.js and Express.js: The backend server was built using Node.js and Express.js, providing a robust and efficient foundation for handling HTTP requests and responses.
+
+MongoDB and Mongoose: Petfolio uses MongoDB as its database, with Mongoose as the ODM (Object-Document Mapping) for data modeling and interaction.
+
+Authentication with Passport.js: Passport.js was integrated for user authentication, offering both local and Google OAuth strategies for user registration and login.
+
+Cloudinary: Cloudinary's cloud-based media management platform was utilized for storing and serving user-uploaded pet images.
+
+User Data and Sessions
+Express Session and Connect-Mongo: User sessions were managed using Express Session and Connect-Mongo, allowing for secure and persistent user data storage.
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *wow I actually did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+Building Petfolio was a fantastic learning experience. Here are some key takeaways and insights gained during its development:
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
+Full-Stack Development: Petfolio provided valuable hands-on experience with full-stack development, including frontend, backend, and database integration.
 
-**Palettable:** https://github.com/alecortega/palettable
+Authentication: Implementing user authentication with Passport.js and integrating Google OAuth expanded my understanding of user management.
 
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
+Data Modeling: Working with MongoDB and Mongoose reinforced my data modeling and database interaction skills.
 
-**Patch Panel:** https://github.com/alecortega/patch-panel
+Third-Party APIs: Integrating third-party services like Cloudinary and Google OAuth taught me how to harness external resources to enhance an application's functionality.
 
+Performance Optimization: Optimizing the application's performance and responsiveness demonstrated the importance of efficient code and resource management.
+
+Error Handling: Effective error handling and debugging were crucial in delivering a stable and user-friendly application.
+
+Continuous Learning: Petfolio reaffirmed the idea that software development is a continuous learning journey, with opportunities for growth in every project.
 
 
