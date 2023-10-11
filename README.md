@@ -7,8 +7,7 @@ Petfolio is a full-stack web application that helps pet owners organize and mana
 
 
 
-https://github.com/jamiesoconnell/petfolio/assets/128747065/80db5b25-30a9-4251-92fa-321503f07b37
-
+<iframe src="https://giphy.com/embed/0ER9NQHTZavzA0qIWN" width="480" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/0ER9NQHTZavzA0qIWN">via GIPHY</a></p>
 
 
 
