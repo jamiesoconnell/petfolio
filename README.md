@@ -3,13 +3,7 @@ Petfolio is a full-stack web application that helps pet owners organize and mana
 
 **Link to project:** https://petfolio.cyclic.cloud/
 
-
-
-
-
-<iframe src="https://giphy.com/embed/0ER9NQHTZavzA0qIWN" width="480" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/0ER9NQHTZavzA0qIWN">via GIPHY</a></p>
-
-
+![giphy (1)](https://github.com/jamiesoconnell/petfolio/assets/128747065/f1066e07-bf21-4d3f-95b1-ba0eb5b1daff)
 
 
 ## How It's Made:
